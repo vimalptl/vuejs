@@ -1,18 +1,23 @@
 <template>
-  <div>
+<div class="layout">
+    <section class="footer-section">
     <app-header></app-header>
-    <h1>{{ msg }}</h1>
-    <p>
-
-    </p>
+    </section>
+    <section class="main-section section">
+      <div class="container content">
+        <category></category>
+      </div>
+    </section>
+    <section class="footer-section">
     <app-footer></app-footer>
-  </div>
+    </section>
+</div>
 </template>
 
 <script>
 import AppHeader from './AppHeader.vue';
 import AppFooter from './AppFooter.vue';
-
+import Category from './Category.vue';
 export default {
   name: 'Layout',
   props: {
@@ -20,7 +25,8 @@ export default {
   },
   components: {
     'app-header' : AppHeader,
-    'app-footer' : AppFooter
+    'app-footer' : AppFooter,
+    'category' : Category
   },
 
 }
@@ -28,18 +34,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

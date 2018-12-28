@@ -1,8 +1,7 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+  <template>
+
     <Layout msg="Welcome to Your Vue.js App"/>
-  </div>
+
 </template>
 
 <script>
@@ -17,12 +16,12 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* App deployed on WebPortal center's the to menu, override style to add width 100% */
+  .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
 </style>

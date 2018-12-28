@@ -1,9 +1,9 @@
 <template>
 <footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
-            Follow us on Tweeter
-        </div>
-    </div>
+  <div class="content has-text-centered">
+    <p>
+      <strong>Site was build using Vue and Bulma</strong> by Vimal.
+    </p>
+  </div>
 </footer>
 </template>
