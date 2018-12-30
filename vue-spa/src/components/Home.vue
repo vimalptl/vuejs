@@ -1,11 +1,11 @@
 <template>
-<div class="layout">
+<div class="home">
     <section class="header-section">
     <app-header></app-header>
     </section>
     <section class="main-section section">
       <div class="container content">
-        <category></category>
+          <p> Home </p>
       </div>
     </section>
     <section class="footer-section">
@@ -17,22 +17,18 @@
 <script>
 import AppHeader from './AppHeader.vue';
 import AppFooter from './AppFooter.vue';
-import Category from './Category.vue';
+
 export default {
-  name: 'Layout',
-  props: {
-    msg: String
-  },
+  name: 'home',
   components: {
     'app-header' : AppHeader,
-    'app-footer' : AppFooter,
-    'category' : Category
+    'app-footer' : AppFooter
   }
-
 }
+
+
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style>
 
 </style>

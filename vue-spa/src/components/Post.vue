@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 /* Card's with same height */
 .card {
     padding-bottom: 40px;

@@ -1,9 +1,11 @@
 <template>
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="..\assets\logo.png" width="40" height="28">
-    </a>
+       <router-link to="/" class="navbar-item">
+       <img src="..\assets\logo.png" width="40" height="28">
+       </router-link>
+      
+
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -14,9 +16,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="https://bulma.io">
-        Home
-      </a>
+      <router-link to="/home" class="navbar-item">Home</router-link>
 
       <a class="navbar-item" href="https://bulma.io">
         Documentation
@@ -31,9 +31,7 @@
           <a class="navbar-item">
             About
           </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
+          <router-link to="/FAQ" class="navbar-item">FAQ - Axios</router-link>
           <a class="navbar-item">
             Contact
           </a>
