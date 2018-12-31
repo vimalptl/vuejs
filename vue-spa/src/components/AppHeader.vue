@@ -18,7 +18,7 @@
     <div class="navbar-start">
       <router-link to="/home" class="navbar-item">Home</router-link>
 
-      <a class="navbar-item" href="https://bulma.io">
+      <a class="navbar-item " href="https://bulma.io">
         Documentation
       </a>
 

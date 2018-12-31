@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+// import axios from 'axios';
+import faqService from '@/services/faq.js'
 
 export default {
   name: 'faq',
@@ -33,15 +33,29 @@ export default {
     faqs: [],
     errors: []
   }),
+  methods: {
+    loadPosts () {
+      faqService.getPosts().then(data => {
+        this.faqs = data
+      });
+    }
+  },
   created() {
-    axios.get('http://jsonplaceholder.typicode.com/posts')
-      .then(response => {
-        this.faqs = response.data.slice(0,10);
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+    this.loadPosts();
+  },
+  watch() {
+    this.loadPosts();
   }
+
+  // created() {
+  //   axios.get('http://jsonplaceholder.typicode.com/posts')
+  //     .then(response => {
+  //       this.faqs = response.data.slice(0,10);
+  //     })
+  //     .catch(e => {
+  //       this.errors.push(e)
+  //     })
+  // }
 }
 
 </script>
