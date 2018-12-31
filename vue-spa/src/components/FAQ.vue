@@ -25,8 +25,6 @@
 
 <script>
 import axios from 'axios';
-import AppHeader from './AppHeader.vue';
-import AppFooter from './AppFooter.vue';
 
 
 export default {
@@ -35,10 +33,6 @@ export default {
     faqs: [],
     errors: []
   }),
-  components: {
-    'app-header' : AppHeader,
-    'app-footer' : AppFooter
-  },
   created() {
     axios.get('http://jsonplaceholder.typicode.com/posts')
       .then(response => {

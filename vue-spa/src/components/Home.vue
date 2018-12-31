@@ -11,15 +11,10 @@
 </template>
 
 <script>
-import AppHeader from './AppHeader.vue';
-import AppFooter from './AppFooter.vue';
 
 export default {
   name: 'home',
-  components: {
-    'app-header' : AppHeader,
-    'app-footer' : AppFooter
-  }
+
 }
 
 
