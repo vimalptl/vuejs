@@ -3,9 +3,11 @@
     <section class="header-section">
     <app-header></app-header>
     </section>
-    <section class="main-section section">
-      <div class="container content">
-        <category></category>
+    <section class="container section">
+      <div class="columns">
+          <div class="column is=8">
+             <slot />
+          </div>
       </div>
     </section>
     <section class="footer-section">
@@ -15,9 +17,9 @@
 </template>
 
 <script>
-import AppHeader from './AppHeader.vue';
-import AppFooter from './AppFooter.vue';
-import Category from './Category.vue';
+import AppHeader from '@/components/AppHeader.vue';
+import AppFooter from '@/components/AppFooter.vue';
+
 export default {
   name: 'Layout',
   props: {
@@ -25,8 +27,7 @@ export default {
   },
   components: {
     'app-header' : AppHeader,
-    'app-footer' : AppFooter,
-    'category' : Category
+    'app-footer' : AppFooter
   }
 
 }

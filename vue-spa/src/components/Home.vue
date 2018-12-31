@@ -1,16 +1,12 @@
 <template>
 <div class="home">
-    <section class="header-section">
-    <app-header></app-header>
-    </section>
+
     <section class="main-section section">
       <div class="container content">
           <p> Home </p>
       </div>
     </section>
-    <section class="footer-section">
-    <app-footer></app-footer>
-    </section>
+
 </div>
 </template>
 

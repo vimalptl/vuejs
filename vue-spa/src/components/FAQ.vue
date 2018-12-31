@@ -1,8 +1,6 @@
 <template>
 <div class="faq">
-    <section class="header-section">
-    <app-header></app-header>
-    </section>
+
     <div class="container">
       <section class="section">
         <h1 class="title">FAQ</h1>
@@ -20,9 +18,7 @@
         </div>
       </section>
     </div>
-    <section class="footer-section">
-    <app-footer></app-footer>
-    </section>
+
   </div>
 
 </template>
