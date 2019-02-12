@@ -1,13 +1,14 @@
 <template>
 
-    <section class="hero is-success is-fullheight">
         <div v-if='isAuthenticated'>
             Hello authenticated user!
-            <button v=on:click="logout()" class="button is-primary">
+            <button v-on:click="logout()" class="button is-primary">
                 logout
             </button>
         </div>
         <div v-else>
+    <section class="hero is-success is-fullheight">
+
         <div class="hero-body">
 
             <div class="container has-text-centered">
@@ -72,8 +73,8 @@
 
             </div>
         </div>
-        </div>
     </section>
+        </div>
 </template>
 
 <script>
