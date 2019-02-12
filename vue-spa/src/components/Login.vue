@@ -1,7 +1,13 @@
 <template>
-    
-    <section class="hero is-success is-fullheight">
 
+    <section class="hero is-success is-fullheight">
+        <div v-if='isAuthenticated'>
+            Hello authenticated user!
+            <button v=on:click="logout()" class="button is-primary">
+                logout
+            </button>
+        </div>
+        <div v-else>
         <div class="hero-body">
 
             <div class="container has-text-centered">
@@ -14,19 +20,11 @@
 
                     <div class="box">
 
-                        <figure class="avatar">
-
-                            <img src="https://placehold.it/128x128">
-
-                        </figure>
-
-                        <form>
-
                             <div class="field">
 
                                 <div class="control">
 
-                                    <input class="input is-large" type="email" placeholder="Your Email" autofocus="">
+                                    <input v-model="username" class="input is-large" type="username" placeholder="Your UserName" autofocus="">
 
                                 </div>
 
@@ -38,7 +36,7 @@
 
                                 <div class="control">
 
-                                    <input class="input is-large" type="password" placeholder="Your Password">
+                                    <input v-model="password" class="input is-large" type="password" placeholder="Your Password">
 
                                 </div>
 
@@ -56,9 +54,7 @@
 
                             </div>
 
-                            <button class="button is-block is-info is-large is-fullwidth">Login</button>
-
-                        </form>
+                            <button v-on:click="login()" class="button is-block is-info is-large is-fullwidth">Login</button>
 
                     </div>
 
@@ -75,15 +71,46 @@
                 </div>
 
             </div>
-
         </div>
-
+        </div>
     </section>
 </template>
 
 <script>
+import appService from '../services/appservice.js'
 export default {
-    name : 'login'
+    name : 'login',
+    data() {
+        return {
+            username: '',
+            password: '',
+            isAuthenticated : false
+        }
+    },
+    methods: {
+        login() {
+            appService.login({username: this.username, password: this.password})
+            .then((data) => {
+                window.localStorage.setItem('token',data.token);
+                window.localStorage.setItem('tokenExpiration',data.expiration);
+                this.isAuthenticated = true;
+                this.username = '';
+                this.password = '';
+            }).catch(() => window.alert('Could not login!'));
+        },
+        logout() {
+            window.localStorage.setItem('token',null);
+            window.localStorage.setItem('tokenExpiration',null);
+            this.isAuthenticated = false;
+        }
+    },
+    created () {
+        let expiration = window.localStorage.getItem('tokenExpiration');
+        var unixTimeStamp = new Date().getTime() / 1000;
+        if (expiration !== null && parseInt(expiration) - unixTimeStamp > 0 ) {
+            this.isAuthenticated = true;
+        }
+    }
 }
 </script>
 

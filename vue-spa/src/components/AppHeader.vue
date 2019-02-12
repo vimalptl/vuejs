@@ -22,6 +22,8 @@
         Documentation
       </a>
 
+      <router-link to="/login" class="navbar-item">Login</router-link>
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
