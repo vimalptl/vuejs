@@ -2,6 +2,8 @@
 
         <div v-if='isAuthenticated'>
             Hello authenticated user!
+            <p> Name: {{profile.firstName}}</p>
+            <p> Favorite Sandwich: {{ profile.favoriteSandwich}}</p>
             <button v-on:click="logout()" class="button is-primary">
                 logout
             </button>
@@ -17,7 +19,7 @@
 
                     <h3 class="title has-text-grey">Login</h3>
 
-                    <p class="subtitle has-text-grey">Please login to proceed.</p>
+                    <p class="subtitle has-text-grey">Please login to proceed. (bill/vuejs)</p>
 
                     <div class="box">
 
@@ -79,13 +81,29 @@
 
 <script>
 import appService from '../services/appservice.js'
+import eventBus from '../event-bus.js'
+
 export default {
     name : 'login',
     data() {
         return {
             username: '',
             password: '',
-            isAuthenticated : false
+            isAuthenticated : false,
+            profile: {}
+        }
+    },
+    watch : {
+        isAuthenticated: function (val) {
+            if (val) {
+                appService.getProfile().then(profile => {
+                    this.profile = profile;
+                });
+
+            } else {
+                this.profile = {};
+            }
+            eventBus.$emit('authStatusUpdate',val);
         }
     },
     methods: {

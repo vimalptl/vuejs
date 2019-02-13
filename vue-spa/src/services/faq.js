@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://jsonplaceholder.typicode.com'
+//axios.defaults.baseURL = 'http://jsonplaceholder.typicode.com'
 
 const faq = {
     getPosts() {
         return new Promise((resolve) => {
-            axios.get('/posts')
+            axios.get('http://jsonplaceholder.typicode.com/posts')
             .then(response => {
               resolve(response.data.slice(0,10));
             })

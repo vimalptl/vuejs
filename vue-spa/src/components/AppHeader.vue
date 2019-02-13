@@ -22,7 +22,9 @@
         Documentation
       </a>
 
-      <router-link to="/login" class="navbar-item">Login</router-link>
+      <router-link to="/login" class="navbar-item">
+        <span v-if="isAuthenicated">Logout</span><span v-else>Login</span>
+      </router-link>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -47,3 +49,16 @@
   </div>
 </nav>
 </template>
+<script>
+import eventBus from '../event-bus.js'
+export default {
+  data() {
+    return {
+      isAuthenicated: false
+    }
+  },
+  created() {
+    eventBus.$on('authStatusUpdate',isAuthenicated => {this.isAuthenicated = isAuthenicated});
+  }
+}
+</script>
