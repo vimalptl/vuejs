@@ -23,7 +23,7 @@
       </a>
 
       <router-link to="/login" class="navbar-item">
-        <span v-if="isAuthenicated">Logout</span><span v-else>Login</span>
+        <span v-if="isAuthenticated">Logout</span><span v-else>Login</span>
       </router-link>
 
       <div class="navbar-item has-dropdown is-hoverable">
@@ -50,15 +50,11 @@
 </nav>
 </template>
 <script>
-import eventBus from '../event-bus.js'
+
+import { mapGetters } from 'vuex';
 export default {
-  data() {
-    return {
-      isAuthenicated: false
-    }
-  },
-  created() {
-    eventBus.$on('authStatusUpdate',isAuthenicated => {this.isAuthenicated = isAuthenicated});
+  computed: {
+    ...mapGetters(['isAuthenticated'])
   }
 }
 </script>

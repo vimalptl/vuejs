@@ -5,6 +5,9 @@ Implement Login Function with Token
 -- window.
 -- Axios intercepter to inject Token to header
 -- use event to track authentication -- this doesn't work well since you have to add isAuthentication check on all the pages, it is best to implement State using Vuex.
+-- Vuex
+npm install vuex --save
+-- Add and use vuex store and update login / logout to use vuex state.
 
 ## Project setup
 
