@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Category from "./components/Category.vue";
 import FormGen from "./components/Form-Generator.vue";
 import FormWiz from "./components/Wizard-Form.vue";
+import Fnol from "./components/Claims-Fnol.vue";
+import Test from "./components/TestForm.vue";
 
 /*
 import Home from './components/Home.vue'
@@ -19,11 +20,11 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",
   routes: [
-    /*    { path: '/home', name: "home",  component: Home},*/
+    { path: "/fnol", name: "fnol", component: Fnol },
     { path: "/fw", name: "wizard-form", component: FormWiz },
-
+    { path: "/test", name: "testform", component: Test },
     { path: "/fg", name: "form-generator", component: FormGen },
-    { path: "/", component: Category },
+    { path: "/", name: "wizard-form", component: FormWiz },
     { path: "*", name: "notfound", component: NotFound }
   ]
 });
